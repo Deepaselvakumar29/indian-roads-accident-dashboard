@@ -1,70 +1,127 @@
 # 🚦 Indian Roads Accident Analysis Dashboard
 
-An interactive Streamlit dashboard for exploring and analyzing the Indian Roads Accident dataset.
+An interactive dashboard to explore and analyze **20,000 Indian road accident records** using Streamlit and Plotly.
 
-## 📁 Project Structure
+---
+
+## 📁 Files Included
 
 ```
 indian_roads_project/
-├── app.py                    # Streamlit dashboard (main entry point)
-├── preprocess.py             # Data cleaning & preprocessing module
-├── indian_roads_dataset.xlsx # Raw dataset (20,000 records)
-├── requirements.txt          # Python dependencies
-└── README.md
+├── app.py                      # Main dashboard (run this)
+├── preprocess.py               # Data cleaning module
+├── indian_roads_dataset.xlsx   # Dataset (20,000 records)
+├── requirements.txt            # Dependencies list
+└── README.md                   # This file
 ```
 
-## 🛠️ Setup & Run
+---
+
+## ⚙️ Requirements
+
+- Python 3.9 or above
+- Internet connection (for first-time package install)
+
+---
+
+## 🚀 How to Run
+
+### Step 1 — Open Command Prompt (CMD)
+
+Press `Win + R` → type `cmd` → Enter
+
+### Step 2 — Go to Project Folder
 
 ```bash
-# 1. Install dependencies
-pip install -r requirements.txt
-
-# 2. Run the dashboard
-streamlit run app.py
+cd path\to\indian_roads_project
 ```
 
-The dashboard opens at **http://localhost:8501**
+Example:
+```bash
+cd D:\indian_roads_project
+```
 
-## 🧹 Data Cleaning Steps (preprocess.py)
+### Step 3 — Install Required Packages
 
-| Step | Action |
-|------|--------|
-| Missing values | `festival` NaN → `'No Festival'` |
-| Date parsing | Extracted `year`, `month`, `month_name` |
-| Severity encoding | `minor=1`, `major=2`, `fatal=3` |
-| Risk categorisation | `Low / Medium / High` from `risk_score` |
-| Time of day | `Morning / Afternoon / Evening / Night` |
-| Deduplication | Removed duplicate `accident_id` rows |
-| Data types | All categoricals cast to `category` dtype |
+```bash
+pip install streamlit pandas plotly openpyxl numpy==1.24.3
+```
+
+> ⏳ This may take 2–3 minutes. Run only once.
+
+### Step 4 — Run the Dashboard
+
+```bash
+python -m streamlit run app.py
+```
+
+### Step 5 — View in Browser
+
+The dashboard will automatically open at:
+
+```
+http://localhost:8501
+```
+
+If it does not open automatically, copy the above link and paste it in your browser.
+
+---
 
 ## 📊 Dashboard Features
 
-- **7 KPI cards** — Total accidents, casualties, vehicles, fatal %, avg risk, peak hour %, weekend %
-- **Severity pie chart** — Minor / Major / Fatal breakdown
-- **Cause bar chart** — Top accident causes
-- **Monthly trend lines** — Severity split across months
-- **Hourly heatmap** — Accident distribution by hour
-- **State-wise stacked bar** — City-level severity comparison
-- **Weather impact chart** — Weather vs severity cross-analysis
-- **Road type scatter** — Accidents vs casualties vs avg risk
-- **Risk score histogram** — Distribution by severity
-- **Day-of-week bar** — Weekday vs weekend highlighting
-- **Festival analysis** — Accident count during festivals
-- **Interactive map** — Geospatial scatter with hover details
-- **Data table + CSV download** — Filtered data export
+| Section | Description |
+|--------|-------------|
+| 📈 KPI Cards | Total accidents, casualties, fatal %, avg risk score |
+| 🥧 Severity Chart | Minor / Major / Fatal breakdown |
+| 🎯 Cause Analysis | Top accident causes |
+| 📅 Monthly Trend | Severity split across months |
+| 🕐 Hourly Pattern | Accident count by hour of day |
+| 🗺️ State-wise Chart | Stacked bar by state and severity |
+| 🌤️ Weather Impact | Weather vs accident severity |
+| 🛣️ Road Type Analysis | Accidents vs casualties by road type |
+| 📊 Risk Distribution | Risk score histogram |
+| 📆 Day-of-Week | Weekday vs weekend comparison |
+| 🎉 Festival Analysis | Accidents during festivals |
+| 🗺️ India Map | Interactive geospatial accident map |
+| 📋 Data Table | Filtered data with CSV download |
+
+---
 
 ## 🔍 Sidebar Filters
 
-All charts respond to:
-- State / City
-- Accident Severity (multi-select)
-- Road Type (multi-select)
-- Weather (multi-select)
-- Year Range (slider)
+All charts update dynamically based on:
+- State & City
+- Accident Severity
+- Road Type
+- Weather Condition
+- Year Range
 
-## 📦 Key Libraries
+---
 
-- `streamlit` — Dashboard framework
-- `plotly` — Interactive charts & maps
-- `pandas` — Data manipulation
-- `openpyxl` — Excel file reading
+## 🧹 Data Cleaning Applied
+
+| Step | Action |
+|------|--------|
+| Missing values | festival NaN filled as No Festival |
+| Date features | Extracted year, month, month_name |
+| Severity encoding | minor=1, major=2, fatal=3 |
+| Risk category | Low / Medium / High from risk score |
+| Time of day | Morning / Afternoon / Evening / Night |
+| Duplicates | Checked and removed duplicate accident IDs |
+| Data types | Optimised all categoricals to category dtype |
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| Python | Core language |
+| Streamlit | Dashboard framework |
+| Plotly | Interactive charts & map |
+| Pandas | Data manipulation |
+| OpenPyXL | Excel file reading |
+
+---
+
+*Built as part of Indian Roads Accident Data Analysis Project.*
